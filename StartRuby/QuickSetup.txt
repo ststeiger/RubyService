@@ -1,0 +1,49 @@
+
+Requirements:
+redmine-3.2.4.zip
+ruby-2.1.7-x64-mingw32.7z
+DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
+
+
+
+
+gem update --system
+
+
+
+ruby dk.rb init
+
+
+edit config.yml ==> - E:\ruby-2.1.7-x64-mingw32
+
+ruby dk.rb install
+
+gem install bundler
+bundle install --without development test rmagick
+
+
+
+
+
+bundle exec rake generate_secret_token
+SET RAILS_ENV=production
+bundle exec rake db:reset
+bundle exec rake db:migrate
+bundle exec rake redmine:load_default_data
+
+
+bundle exec rails server webrick -e production
+OR 
+puma --env production --dir C:\Redmine\redmine-3.2.4 -p 3000
+OR 
+thin start -e production -p 3000 --prefix /redmine
+
+
+
+------------------ on ubuntu ------------------
+apt-get install redmine
+edit /usr/share/redmine/config/database.yml
+edit /usr/share/redmine/Gemfile
+apt-get install ruby-dev
+bundle install
+------------------ on ubuntu ------------------

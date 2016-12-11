@@ -1,0 +1,225 @@
+URL-Rewrite Module 2.0
+https://www.microsoft.com/en-us/download/details.aspx?id=47337
+
+ARR
+https://www.iis.net/downloads/microsoft/application-request-routing
+https://www.microsoft.com/en-us/download/details.aspx?id=47333
+
+
+
+Web-Platform Installer
+https://www.microsoft.com/web/downloads/platform.aspx?lang=
+
+
+
+
+
+
+http://www.redmine.org/projects/redmine/wiki/DeRedmineInstall
+
+
+Redmine 3.x: 2012 oder höher
+
+
+http://rubyinstaller.org/downloads/
+
+cd C:\Ruby23-x64
+gem install rake
+
+install devkit
+http://jekyll-windows.juthilo.com/1-ruby-and-devkit/
+
+
+ruby dk.rb init
+    Note: (fill config.yaml when ruby not installed but xcopied)
+ruby dk.rb install
+
+
+gem install rails
+gem install bundler
+gem install tiny_tds
+
+
+
+
+configure database.yml
+/////////////////bundle install --without development test
+cd C:\Redmine\redmine-3.3.1
+bundle install --without development test rmagick
+SET RAILS_ENV=production
+bundle exec rake db:reset
+bundle exec rake db:migrate
+bundle exec rake redmine:load_default_data
+
+
+http://stackoverflow.com/questions/16836397/does-tinytds-support-ruby-2-0-0
+gem uninstall tiny_tds
+gem install tiny_tds --platform=ruby 
+
+gem list tiny_tds --remote --all
+sudo gem install tiny_tds -v '~> 0.7.0' --platform=ruby
+
+
+
+
+
+
+http://www.redmine.org/projects/redmine/wiki/HowTo_install_rmagick_gem_on_Windows
+
+
+gem install activerecord-sqlserver-adapter
+sudo apt-get install freetds-dev
+
+nan
+
+CORDB2012: 192.168.115.243
+CORDB2016: 192.168.115.43
+
+
+https://atom.io/
+http://www.imagemagick.org/download/binaries/
+http://stackoverflow.com/questions/4989097/rmagick-under-windows
+
+http://www.redmine.org/projects/redmine/wiki/HowTo_install_rmagick_gem_on_Windows
+
+
+
+https://www.imagemagick.org/script/binary-releases.php
+C:\ImageMagick-7.0.3-Q16
+
+---------------------------
+
+
+http://stackoverflow.com/questions/10246023/bundle-install-fails-with-ssl-certificate-verification-error
+
+gem sources -r https://rubygems.org/
+gem sources -a http://rubygems.org/
+gem update --system
+gem sources -r http://rubygems.org/
+gem sources -a https://rubygems.org/
+
+
+instead use:
+gem update --system --source http://rubygems.org/ 
+
+
+
+Bullshit:
+http://www.configserverfirewall.com/ubuntu-linux/enable-ubuntu-desktop-root-login/
+
+Ruby 2.3.1p112
+
+
+http://www.freetds.org/userguide/osissues.htm#WINDOWS
+https://ci.appveyor.com/project/FreeTDS/freetds
+https://github.com/ramiro/freetds/releases
+
+
+---------------------------------------
+
+C:\Ruby21-x64\native
+
+2.1.8p440
+https://rubyinstaller.org/downloads/archives
+
+
+gem sources -r https://rubygems.org/
+gem sources -a http://rubygems.org/
+gem update --system
+gem sources -r http://rubygems.org/
+gem sources -a https://rubygems.org/
+
+gem install bundle 
+
+
+///////// configure database.yml
+
+---------------------------------------------------------------------------------------------------------
+edit redmine-3.2.4\config\environments\production.rb
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb
+
+  config.relative_url_root = '/redmine'
+---------------------------------------------------------------------------------------------------------
+
+edit redmine-3.2.4\config.ru
+
+map Rails.application.config.relative_url_root || "/" do
+    run RedmineApp::Application
+end
+
+---------------------------------------------------------------------------------------------------------
+edit redmine-3.2.4\Gemfile
+
+add 
+group :production do
+  gem "puma"
+end
+
+change the tiny_tds version from 0.6.1 to 0.7.0
+gem "tiny_tds", "~> 0.6.1", :platforms => [:mri, :mingw, :x64_mingw]
+to 
+gem "tiny_tds", "~> 0.7.0", :platforms => [:mri, :mingw, :x64_mingw]
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+cd C:\Redmine\redmine-3.2.4
+bundle install --without development test rmagick
+
+SET RAILS_ENV=production
+bundle exec rake generate_secret_token
+
+
+SET RAILS_ENV=production
+bundle exec rake db:reset
+bundle exec rake db:migrate
+bundle exec rake redmine:load_default_data
+
+
+cd C:\Redmine\redmine-3.2.4
+bundle exec rails server webrick -e production 
+http://127.0.0.1:3000
+http://localhost:3000/
+
+
+http://www.redmine.org/projects/redmine/wiki/redmineinstall#Step-4-Dependencies-installation
+thin start -e production -p 3000 --prefix /redmine
+puma --env production --dir C:\Redmine\redmine-3.2.4 -p 3000
+
+ruby -S
+puma --env production --dir C:\Redmine\redmine-3.2.4 -p 3000
+
+
+
+
+------------------------ web.config ------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+  
+    <system.web>
+      <compilation debug="true" targetFramework="4.0" />
+    </system.web>
+  
+  
+    <system.webServer>
+      <handlers>
+          <add name="RubyFastCGI" path="*" verb="*" modules="FastCgiModule" scriptProcessor="C:\Ruby21-x64\bin\ruby.exe|C:\Redmine\redmine-3.2.4\public\dispatch.fcgi production" resourceType="File" requireAccess="Script" />
+          <add name="httpplatformhandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" requireAccess="Script" />
+      </handlers>
+      
+    </system.webServer>
+    
+</configuration>
+
+
+------------------------ End web.config ------------------------

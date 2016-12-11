@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+  
+    <system.web>
+      <compilation debug="true" targetFramework="4.0" />
+    </system.web>
+    
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <rule name="ReverseProxyToWebRick" stopProcessing="true">
+                    <match url="(.*)" />
+                    <action type="Rewrite" url="http://127.0.0.1:3000/{R:1}" />
+                </rule>
+            </rules>
+            <outboundRules>
+              <!-- in rule: preCondition="ResponseIsHtml1" -->
+              <!--
+              <rule name="ReverseProxyToIIS" stopProcessing="true">
+                    <match filterByTags="A, Form, Img" pattern="^http(s)?://127.0.0.1:3000/(.*)" />
+                    <match url="(.*)" /> 
+              </rule>
+              -->
+              
+              <!--
+                <rule name="ReverseProxyToIIS" stopProcessing="true">
+                    
+                    <match pattern="^http(s)?://127.0.0.1:3000/(.*)" />
+                    <action type="Rewrite" value="http://localhost/redmine/{R:2}" />
+                </rule>
+              -->
+              
+              <rule name="ReverseProxyToIIS" stopProcessing="true">
+                  <!-- filterByTags="A"  -->
+                    <match pattern="^/(.*)" />
+                    <action type="Rewrite" value="/{C:1}/{R:1}" />
+              </rule>
+              
+              
+              
+              <!--
+                <rule name="foo" stopProcessing="true">
+                  <match pattern="^http://localhost:3000/(.*)"/>
+                  <action type="Rewrite" value="http://localhost/redmine/{R:2}"/>
+                </rule>
+              -->
+              
+                <!--
+                <preConditions>
+                    <preCondition name="ResponseIsHtml1">
+                        <add input="{RESPONSE_CONTENT_TYPE}" pattern="^text/html" />
+                    </preCondition>
+                </preConditions>
+                -->
+            </outboundRules>
+        </rewrite>
+    </system.webServer>
+    
+</configuration>

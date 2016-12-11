@@ -1,0 +1,10 @@
+ruby -S 
+puma --env production --dir C:\Redmine\redmine-3.2.4 -p 3000 %HTTP_PLATFORM_PORT% ">
+
+
+ruby -S
+puma --env production --dir C:\Redmine\redmine-3.2.4 -p 3000
+
+
+
+https://www.iis.net/downloads/microsoft/httpplatformhandler

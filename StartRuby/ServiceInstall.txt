@@ -1,0 +1,45 @@
+
+
+
+https://github.com/hicknhack-software/rails-disco/wiki/Installing-puma-on-windows
+http://www.redmine.org/boards/2/topics/30675?r=30706
+gem install win32-service
+
+
+ C:\Redmine\redmine-3.2.4\service.rb
+
+sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "\"C:\Ruby21-x64\bin\ruby.exe\" -C \"C:\Redmine\redmine-3.2.4\service.rb\"" 
+sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "C:\Ruby21-x64\bin\ruby.exe -C C:\Redmine\redmine-3.2.4\service.rb"
+
+sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "C:\Redmine\redmine-3.2.4\StartRuby.exe"
+
+
+depend= tcpip/MSSQLSERVER
+sc description "COR_Redmine" "Puma Web-Server serving redmine"
+
+http://serverfault.com/questions/24821/how-to-add-dependency-on-a-windows-service-after-the-service-is-installed
+sc config [service name] depend= <Dependencies(separated by / (forward slash))>
+
+
+
+
+
+sc delete "COR_Redmine"
+
+
+
+gem "thin" 
+thin start -e production -p 3000
+
+
+
+
+
+
+gem "eventmachine", "~> 1.0.0.rc.4" 
+gem "thin" 
+
+
+http://navnilesh.blogspot.ch/2014/10/create-rtc-service-using-powershell.html
+powershell:
+New-Service -Name 'MicrosoftDynamicsNAVServer$DynamicsNAV71B37221' -BinaryPathName '"C:\Program Files\Microsoft Dynamics NAV\71\ServiceB37221\Microsoft.Dynamics.Nav.Server.exe" $DynamicsNAV71B37221 /config "C:\Program Files\Microsoft Dynamics NAV\71\ServiceB37221\Microsoft.Dynamics.NAV.Server.exe.config"' -DependsOn 'NetTcpPortSharing' -Description 'Service handling DynamicsNAV71B37221' -DisplayName 'Microsoft Dynamics NAV 71 Server[Rollup 9]' -StartupType Manual
