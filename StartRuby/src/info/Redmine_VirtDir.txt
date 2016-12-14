@@ -1,0 +1,18 @@
+
+C:\Redmine\redmine-3.2.4\config.ru
+# This file is used by Rack-based servers to start the application.
+
+require ::File.expand_path('../config/environment',  __FILE__)
+#run RedmineApp::Application
+#map ENV['RAILS_RELATIVE_URL_ROOT'] do
+map Rails.application.config.relative_url_root || "/" do
+    run RedmineApp::Application
+end
+
+
+
+
+C:\Redmine\redmine-3.2.4\config\environments\production.rb
+
+  # Virtual-directory should have the same name as virtual directory in IIS
+  config.relative_url_root = '/redmine'

@@ -1,17 +1,33 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 
+
 namespace StartRuby
 {
+
+
     static class Program
     {
+
+
+        [AdministratorPrincipalPermission(System.Security.Permissions.SecurityAction.Demand)]
+        public static void Setup()
+        {
+            bool a = InstallHelper.IsUserLocalAdmin();
+            bool b = InstallHelper.IsVistaUacAdmin();
+            System.Console.WriteLine(a);
+            System.Console.WriteLine(b);
+        }
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void Main()
+        static void Main(string[] args)
         {
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
@@ -19,6 +35,10 @@ namespace StartRuby
                 new RubyService()
             };
             ServiceBase.Run(ServicesToRun);
-        }
-    }
-}
+        } // End Sub Main 
+
+
+    } // End Class Program 
+
+
+} // End Namespace StartRuby 

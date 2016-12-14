@@ -1,0 +1,16 @@
+{
+  "LogFile_Directory": "C:\\Redmine\\redmine-3.2.4\\Log\\",
+  "Redmine_Directory": "C:\\Redmine\\redmine-3.2.4",
+  "DateTimeFormat": "dddd, dd.MM.yyyy HH:mm:ss",
+
+  "OverwriteEnvironmentVariables": {
+    "RAILS_ENV": "production"
+  },
+
+  "AppendEnvironmentVariables": {
+    "PATH": "C:\\Ruby21-x64\\bin"
+  },
+
+  "StartProgram": "puma.bat",
+  "StartProgramArguments": "--env production --dir \"{Redmine_Directory}\" - p 3000"
+}

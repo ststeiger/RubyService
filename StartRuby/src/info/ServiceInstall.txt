@@ -1,5 +1,12 @@
 
 
+https://stackoverflow.com/questions/2032808/how-to-have-a-loop-in-a-windows-service-without-using-the-timer
+
+
+-----------------------
+
+
+
 
 https://github.com/hicknhack-software/rails-disco/wiki/Installing-puma-on-windows
 http://www.redmine.org/boards/2/topics/30675?r=30706
@@ -12,6 +19,7 @@ sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "\"C:\R
 sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "C:\Ruby21-x64\bin\ruby.exe -C C:\Redmine\redmine-3.2.4\service.rb"
 
 sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "C:\Redmine\redmine-3.2.4\StartRuby.exe"
+
 
 
 depend= tcpip/MSSQLSERVER
