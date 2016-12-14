@@ -11,6 +11,6 @@
     "PATH": "C:\\Ruby21-x64\\bin"
   },
 
-  "StartProgram": "puma.bat",
-  "StartProgramArguments": "--env production --dir \"{Redmine_Directory}\" - p 3000"
+  "StartProgram": "C:\\Ruby21-x64\\bin\\puma.bat",
+  "StartProgramArguments": "--env production --dir \"{Redmine_Directory}\" -p 3000"
 }

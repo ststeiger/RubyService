@@ -101,7 +101,7 @@ namespace StartRuby
                 if (!System.IO.Directory.Exists(logFilePath))
                     System.IO.Directory.CreateDirectory(logFilePath);
 
-                return System.IO.Path.Combine(logFilePath, "service_" + System.DateTime.Now.ToString("yyyyMMddHHmmss") + ".log");
+                return System.IO.Path.Combine(logFilePath, "service_" + System.DateTime.Now.ToString("yyyyMMdd") + ".log");
             }
         }
 
@@ -277,13 +277,13 @@ namespace StartRuby
 
 
                 // webServer.StartInfo.EnvironmentVariables["RAILS_ENV"] = "production";
-
-
-                if(webServer.StartInfo.EnvironmentVariables.ContainsKey("RAILS_ENV"))
-                    Log("Rails: env[\"{0}\"] = \"{1}\"", "RAILS_ENV", webServer.StartInfo.EnvironmentVariables["RAILS_ENV"]);
-                else
-                    Log("WARNING: Rails: env[\"{0}\"] = \"{1}\"", "RAILS_ENV", "NOT SET");
-
+                { 
+                    string thisVar = "RAILS_ENV";
+                    if(webServer.StartInfo.EnvironmentVariables.ContainsKey(thisVar))
+                        Log("Rails: env[\"{0}\"] = \"{1}\"", thisVar, webServer.StartInfo.EnvironmentVariables[thisVar]);
+                    else
+                        Log("WARNING: env[\"{0}\"] = \"{1}\"", thisVar, "NOT SET");
+                }
                 // Manipulate dictionary...
                 // System.Collections.Specialized.StringDictionary dictionary = psi.EnvironmentVariables;
 
@@ -294,9 +294,23 @@ namespace StartRuby
                 // webServer.StartInfo.FileName = @"C:\Ruby21-x64\bin\puma.bat"; // where puma ==> C:\Ruby21-x64\bin\puma; C:\Ruby21-x64\bin\puma.bat
                 webServer.StartInfo.FileName = m_Configuration.StartProgram;
                 //webServer.StartInfo.Arguments = @"puma --env production --dir " + REDMINE_DIR + " -p 3000";
+                Log("Process-StartInfo.FileName: \"{0}\"", webServer.StartInfo.FileName);
+
 
                 // @"--env production --dir " + m_Configuration.Redmine_Directory + " -p 3000";
                 webServer.StartInfo.Arguments = m_Configuration.StartProgramArguments.Replace("{Redmine_Directory}", m_Configuration.Redmine_Directory);
+                Log("Process-StartInfo.Arguments: \"{0}\"", webServer.StartInfo.Arguments);
+
+
+
+                {
+                    string thisVar = "PATH";
+                    if (webServer.StartInfo.EnvironmentVariables.ContainsKey(thisVar))
+                        Log("Rails: env[\"{0}\"] = \"{1}\"", thisVar, webServer.StartInfo.EnvironmentVariables[thisVar]);
+                    else
+                        Log("WARNING: env[\"{0}\"] = \"{1}\"", thisVar, "NOT SET");
+                }
+                
 
 
                 webServer.StartInfo.CreateNoWindow = true;
