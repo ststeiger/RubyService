@@ -366,7 +366,7 @@ namespace StartRuby
                 if (string.IsNullOrEmpty(m_Configuration.StartProgram))
                     throw new System.ArgumentException("StartProgram is NULL or string.empty.");
 
-
+                // Note that at this point, the PATH environment variable (for Ruby.exe) needs to be set for the SERVICE-USER (NOT the service-STARTING-user) 
                 if (m_Configuration.StartProgram.StartsWith(".") || System.IO.Path.IsPathRooted(m_Configuration.StartProgram))
                     this.m_serverProcess.StartInfo.FileName = m_Configuration.StartProgram;
                 else
