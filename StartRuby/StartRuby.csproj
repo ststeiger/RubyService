@@ -50,10 +50,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.ServiceProcess" />
@@ -63,6 +63,8 @@
     <Compile Include="src\InstallHelper.cs" />
     <Compile Include="src\AdministratorPrincipalPermissionAttribute.cs" />
     <Compile Include="src\JSON_PrettyPrinter.cs" />
+    <Compile Include="src\ProcessHelper.cs" />
+    <Compile Include="src\RedmineConfiguration.cs" />
     <Compile Include="src\RubyService.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -1,6 +1,6 @@
 {
   "LogFile_Directory": "C:\\Redmine\\redmine-3.2.4\\Log\\",
-  "Redmine_Directory": "C:\\Redmine\\redmine-3.2.4",
+  "WebRoot": "C:\\Redmine\\redmine-3.2.4",
   "DateTimeFormat": "dddd, dd.MM.yyyy HH:mm:ss",
 
   "OverwriteEnvironmentVariables": {
@@ -11,6 +11,6 @@
     "PATH": "C:\\Ruby21-x64\\bin"
   },
 
-  "StartProgram": "C:\\Ruby21-x64\\bin\\puma.bat",
-  "StartProgramArguments": "--env production --dir \"{Redmine_Directory}\" -p 3000"
+  "StartProgram": "puma",
+  "StartProgramArguments": "--env production --dir \"{WebRoot}\" -p 3000"
 }
