@@ -75,6 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="webroot\index.htm" />
     <Content Include="src\info\pumastart.txt" />
     <Content Include="src\info\redinst.txt" />
     <Content Include="redmine\index.htm" />
@@ -89,6 +90,7 @@
     <None Include="StartRuby.config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="webroot\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
