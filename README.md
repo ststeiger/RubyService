@@ -2,12 +2,7 @@
 License: MIT
 
 
-Build-status
-
-
-
-
-# Ruby Service for Windows   [![Status][cistatus]][https://travis-ci.org/ststeiger/RubyService.svg?branch=master]
+# Ruby Service for Windows   ![Continuous Integration Status](https://travis-ci.org/ststeiger/RubyService.svg?branch=master)
 
 A simple ruby server for windows. 
 
