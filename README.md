@@ -4,14 +4,10 @@ License: MIT
 
 Build-status
 
-[![Status][1]][1]
-
-
-  [1]: https://travis-ci.org/ststeiger/RubyService.svg?branch=master
 
 
 
-# Ruby Service for Windows
+# Ruby Service for Windows   [![Status][cistatus]][https://travis-ci.org/ststeiger/RubyService.svg?branch=master]
 
 A simple ruby server for windows. 
 
@@ -22,6 +18,7 @@ We are open to suggestions, don't hesitate to [submit one](https://github.com/st
 
 ## How to get it
 
+TODO:
 As a [NuGet package](https://www.nuget.org/packages/RubyService).
 
 ## How to use it
