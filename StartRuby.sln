@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartRuby", "StartRuby\StartRuby.csproj", "{725E5087-8FB1-42C7-976E-0EC85B7FD045}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContinuousIntegration", "ContinuousIntegration", "{4EBA8283-DEA4-4D3E-8402-7E840FE5A92F}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
