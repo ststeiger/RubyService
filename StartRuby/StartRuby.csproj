@@ -81,6 +81,7 @@
   <ItemGroup>
     <Content Include="Libs\System.DirectoryServices.AccountManagement.dll" />
     <Content Include="webroot\index.htm" />
+    <Content Include="webroot\redmine\index.htm" />
     <Content Include="src\info\pumastart.txt" />
     <Content Include="src\info\redinst.txt" />
     <Content Include="redmine\index.htm" />
@@ -95,7 +96,8 @@
     <None Include="StartRuby.config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="webroot\Web.config" />
+    <None Include="webroot\redmine\Web.config" />
+    <None Include="webroot\Subdomain-Web.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
