@@ -18,18 +18,7 @@ From [Travis-CI](https://travis-ci.org/ststeiger/RubyService/builds) build artif
 ## How to use it
 
 
-### Instantiation
-
-```csharp
-    ServiceBase[] ServicesToRun;
-    ServicesToRun = new ServiceBase[]
-    {
-        new RubyService()
-    };
-```
-
-
-### How to install the windows-service
+### Installing it as windows-service
 ```dos
     sc create "COR_Redmine" displayname= "Redmine Puma" start= auto binPath= "C:\Redmine\redmine-3.2.4\StartRuby.exe"
     sc description "COR_Redmine" "Puma Web-Server serving redmine"
@@ -43,7 +32,6 @@ To delete the service:
     sc delete "COR_Redmine"
 ```
 
-DateTimeFormat
 To manually start/stop the service, type 
 ```dos
     services.msc
@@ -73,7 +61,7 @@ See also [Difference between net and sc](http://superuser.com/questions/315166/n
 #### XML-configuration
 
 A few config variables are needed
-*  The config file has to be called the same as the executable, minus .exe and plus .json.config
+*  The config file has to be called the same as the service-executable, minus .exe and plus .json.config, and has to be in the same directory as the serice-.exe-file
 *  The logfile-directory is where the service will log all output, in a separate file for each day - no autocleaning.
 *  The WebRoot (your web application's root folder)
 *  DateTimeFormat, that will be used when writing text into the logfile(s) 
@@ -119,7 +107,7 @@ the corresponding configuration file would be:
 If you used the above config-file to launch [Redmine](http://redmine.org), then you'll have redmine running on
 http://127.0.0.1:3000
 
-You can now reverse-proxy redmine into iis. 
+You can now reverse-proxy redmine into IIS. 
 E.g. create the directory "C:\inetpub\wwwroot\redmine", and put the below XML into a file called "web.config". 
 Now, you need to open inetmgr, and convert the directory "redmine" into a web-application. 
 Enable proxy on this machine, under "Application request routing". 
@@ -135,7 +123,7 @@ See that you download the latest version, otherwise installation will fail with 
 Note: 
 Microsoft apparently is not capable to write a proper reverse-proxy/url-rewrite module. 
 So if you have redmine running in a virtual directory "redmine" in IIS (e.g. http://localhost/redmine), 
-it should also run in virtual directory redmine on 127.0.0.1:3000, e.g. http://127.0.0.1:3000/redmine. 
+then redmine itselfs should also run in a virtual directory called "redmine" on 127.0.0.1:3000, e.g. http://127.0.0.1:3000/redmine. 
 If it runs in the root domain (http://localhost), then it should run in the root-domain as well (http://127.0.0.1:3000). 
 The web.config file here assumes that the ruby web-server runs under http://127.0.0.1/redmine.
 
@@ -164,7 +152,9 @@ The web.config file here assumes that the ruby web-server runs under http://127.
     
 </configuration>
 ```
-Check out http://localhost/redmine first to see whether the ruby webserver actually works. 
+Check out http://127.0.0.1:3000/redmine first to see whether the ruby webserver actually works. 
+It should. 
+Then check out http://localhost/redmine to see if the reverse-proxy works. 
 It should. 
 
 
