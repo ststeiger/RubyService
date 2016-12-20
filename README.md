@@ -7,13 +7,15 @@ License: MIT
 A simple ruby server for windows. 
 
 
-## Suggestions, requests, love letters...
+## Suggestions, possibilities for improvement, requests, love letters...
 
-Don't hesitate to submit your suggestions [here](https://github.com/ststeiger/RubyService/issues).
+Don't hesitate to submit your suggestions [in the github issue-tracker here](https://github.com/ststeiger/RubyService/issues).
 
 ## How to get it
 
-From [Travis-CI](https://travis-ci.org/ststeiger/RubyService/builds) build artifacts.
+From [Travis-CI](https://travis-ci.org/ststeiger/RubyService/builds) build artifacts, if Travis would kindly publish the build artifacts, which it does not.
+Otherwise, clone/download the zipball & compile with Visual-Studio or MonoDevelop/XBuild/XamarinStudio if you use Mac or Linux. 
+If you use Windows, Visual Studio Community Edition is free as in beer, by the way. 
 
 ## How to use it
 
