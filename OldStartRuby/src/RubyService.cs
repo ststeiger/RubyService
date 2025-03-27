@@ -1,14 +1,11 @@
 ﻿
-using System.Linq;
-using System.ServiceProcess;
-
-
 namespace StartRuby
 {
 
 
     // https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service
-    public partial class RubyService : ServiceBase
+    public partial class RubyService 
+        : System.ServiceProcess.ServiceBase
     {
 
         protected static RedmineConfiguration m_Configuration;

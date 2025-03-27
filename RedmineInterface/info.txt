@@ -1,0 +1,40 @@
+
+PUMA Korrekt:
+http://127.0.0.1:3000/Servicedesk/
+
+PUMA Falsch: 
+http://127.0.0.1:3000/servicedesk
+
+IIS Korrekt:
+https://localhost:3000/Servicedesk
+
+IIS Falsch:
+http://localhost:3000/Servicedesk
+
+
+Ensure the "URL Rewrite Module" is Installed
+https://www.iis.net/downloads/microsoft/url-rewrite
+
+
+Application Request Routing (ARR)
+https://www.iis.net/downloads/microsoft/application-request-routing
+
+
+Do not just copy the web.config, but also add "URL Rewrite" Reverse-Proxy via GUI 
+
+
+The GUI method automatically enables the proxy feature in ARR at the server level
+
+When adding rules via web.config, the proxy might still be disabled at the server level
+
+
+First, Ensure ARR Proxy is Enabled at Server Level
+Add this to applicationHost.config (located in %windir%\system32\inetsrv\config\) or enable via GUI:
+
+xml
+Copy
+<system.webServer>
+  <proxy enabled="true" />
+</system.webServer>
+
+

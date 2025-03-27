@@ -1,0 +1,31 @@
+
+
+production:
+  adapter: sqlserver
+  database: redmine
+  host: localhost
+  username: THE_DB_USER_NAME
+  password: "TOP_SECRET"
+  # Use "utf8" instead of "utfmb4" for SQL-server and MySQL prior to 5.7.7
+#  encoding: utf8mb4
+  encoding: utf8
+  variables:
+    # Recommended `transaction_isolation` for MySQL to avoid concurrency issues is
+    # `READ-COMMITTED`.
+    # In case of MySQL lower than 8, the variable name is `tx_isolation`.
+    # See https://www.redmine.org/projects/redmine/wiki/MySQL_configuration
+    transaction_isolation: "READ-COMMITTED"
+
+
+
+test:
+  adapter: sqlserver
+  database: redmine_test
+  host: localhost
+  port: 1234
+  encrypt: false
+  trust_server_certificate: true
+  username: THE_DB_USER_NAME
+  password: "TOP_SECRET"
+  variables:
+    transaction_isolation: "READ-COMMITTED"

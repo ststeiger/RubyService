@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartRuby", "StartRuby\StartRuby.csproj", "{725E5087-8FB1-42C7-976E-0EC85B7FD045}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldStartRuby", "OldStartRuby\OldStartRuby.csproj", "{725E5087-8FB1-42C7-976E-0EC85B7FD045}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContinuousIntegration", "ContinuousIntegration", "{4EBA8283-DEA4-4D3E-8402-7E840FE5A92F}"
 	ProjectSection(SolutionItems) = preProject
 		.travis.yml = .travis.yml
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartRuby", "StartRuby\StartRuby.csproj", "{FE4AF2F2-C4BA-4C21-858F-63F27E7382B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedmineInterface", "RedmineInterface\RedmineInterface.csproj", "{FD124418-DB63-45C4-8EA4-040C4E1977E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +25,19 @@ Global
 		{725E5087-8FB1-42C7-976E-0EC85B7FD045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725E5087-8FB1-42C7-976E-0EC85B7FD045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725E5087-8FB1-42C7-976E-0EC85B7FD045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4AF2F2-C4BA-4C21-858F-63F27E7382B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4AF2F2-C4BA-4C21-858F-63F27E7382B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4AF2F2-C4BA-4C21-858F-63F27E7382B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4AF2F2-C4BA-4C21-858F-63F27E7382B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD124418-DB63-45C4-8EA4-040C4E1977E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD124418-DB63-45C4-8EA4-040C4E1977E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD124418-DB63-45C4-8EA4-040C4E1977E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD124418-DB63-45C4-8EA4-040C4E1977E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA097D7C-58DA-419A-95CB-1F09F6867827}
 	EndGlobalSection
 EndGlobal

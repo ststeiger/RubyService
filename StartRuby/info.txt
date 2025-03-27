@@ -1,0 +1,68 @@
+
+Ruby: 
+GEMs are new installed per user. 
+bundle install --system has been removed 
+
+
+SET RAILS_ENV=production
+bundle exec rake db:migrate
+
+
+bundle exec rails server -e production
+OR 
+puma --env production --dir "D:\Webs-Sites\example.com\Servicedesk" -p 3000
+
+
+
+
+https://example.com/Servicedesk/GetSettings.ashx
+https://example.com/Servicedesk/JSON.ashx
+https://example.com/Servicedesk/GetAllowedExtensions.htm
+
+
+PUMA Correkt:
+http://127.0.0.1:3000/Servicedesk/
+
+PUMA Wrong: 
+http://127.0.0.1:3000/servicedesk
+
+IIS Correkt:
+https://localhost:3000/Servicedesk
+
+IIS Wrong:
+http://localhost:3000/Servicedesk
+
+
+
+
+Download Ruby WITH DEVKIT 
+https://rubyinstaller.org/
+https://rubyinstaller.org/downloads/
+Download Redmien 
+https://www.redmine.org/projects/redmine/wiki/Download
+
+
+Get Port: 
+SELECT DISTINCT local_tcp_port FROM sys.dm_exec_connections WHERE local_tcp_port IS NOT NULL 
+
+
+
+
+--SELECT SERVERPROPERTY('IsIntegratedSecurityOnly') AS WindowsAuthOnly;
+SELECT name, is_disabled FROM sys.sql_logins WHERE name = 'MyUser';
+
+
+SET RAILS_ENV=test
+bundle exec rake db:migrate
+
+SET RAILS_ENV=development
+bundle exec rake db:migrate
+
+
+SET RAILS_ENV=production
+bundle exec rake db:migrate
+
+
+
+Firewall rule: 
+Trend Micro Security Agent Upgrade

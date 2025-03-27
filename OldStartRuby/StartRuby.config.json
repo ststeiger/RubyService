@@ -1,14 +1,15 @@
 {
-  "LogFile_Directory": "C:\\Redmine\\redmine-3.2.4\\Log\\",
-  "WebRoot": "C:\\Redmine\\redmine-3.2.4",
+  "LogFile_Directory": "D:\\Webs-Sites\\servicedesk.cor-management.ch\\Servicedesk\\log\\",
+  "WebRoot": "D:\\Webs-Sites\\servicedesk.cor-management.ch\\Servicedesk",
   "DateTimeFormat": "dddd, dd.MM.yyyy HH:mm:ss",
+
 
   "OverwriteEnvironmentVariables": {
     "RAILS_ENV": "production"
   },
 
   "AppendEnvironmentVariables": {
-    "PATH": "C:\\Ruby21-x64\\bin"
+    "PATH": "C:\\Ruby34-x64\\bin"
   },
 
   "StartProgram": "puma",
